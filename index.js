@@ -8,7 +8,9 @@ import { makeFilename, checkAuth } from "./utils/index.js";
 
 // DB
 mongoose
-  .connect("mongodb://localhost:27017/blog")
+  .connect(
+    "mongodb+srv://festoplay:6b7WpyBXPZAR91yc@cluster0.g1qbl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -43,7 +45,7 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
 });
 
 // Port and Start server
-const PORT = 4444;
+const PORT = 80;
 
 const server = app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
