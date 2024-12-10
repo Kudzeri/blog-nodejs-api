@@ -44,8 +44,8 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   res.json({ url: "/uploads/" + req.file.filename });
 });
 
-// Port and Start server
-const PORT = 80;
+// Use PORT from environment or fallback to default
+const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
